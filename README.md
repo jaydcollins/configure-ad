@@ -17,7 +17,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
-- Windows 10 (21H2)
+- Windows 10 (22H2)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
@@ -33,42 +33,48 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/24a6931b-3417-475b-933b-5b95e6c7258f)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/42af859d-60f3-4c70-b00e-68b02ea9b990)
+<img width="949" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/8cb9f035-a553-4182-a4a6-960ea6f965da">
+<img width="944" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/114b8455-5a25-456e-ba7e-78620e7d5d2f">
+
 
 
 
 Setup Resources in Azure
-- Create the Domain Controller VM (Windows Server 2022) named “DC-1”
+- Create the Domain Controller VM (Windows Server 2022) named “DC-2”
 - Take note of the Resource Group and Virtual Network (Vnet) that get created at this time
 - Set Domain Controller’s NIC Private IP address to be static
-- Create the Client VM (Windows 10) named “Client-1”. Use the same Resource Group and Vnet 
+- Create the Client VM (Windows 10) named “Client-2”. Use the same Resource Group and Vnet 
 - Ensure that both VMs are in the same Vnet (you can check the topology with Network Watcher)
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/7aa9345e-5222-45c7-8251-a28aee0d669e)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/0752b990-063f-472e-9ae6-fdf3ecefa373)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/98dbafbb-8635-4b09-acf6-77b7c53eb090)
+<img width="673" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/6122d5d8-b6c6-4c7d-8990-fb622dad9f13">
+<img width="773" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/a90fceeb-93db-40f3-b11c-a438647a78b3">
+<img width="674" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/c670e126-e025-4b16-b705-f64c8550228c">
+
 
 
 
 Ensure Connectivity between the client and Domain Controller
-- Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping)
+- Login to Client-2 with Remote Desktop and ping DC-2’s private IP address with ping -t <ip address> (perpetual ping)
 - Login to the Domain Controller and enable ICMPv4 in on the local windows Firewall
-- Check back at Client-1 to see the ping succeed
+- Check back at Client-2 to see the ping succeed
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/03c7e6e1-4355-4a1d-a9bc-6fc90f962bc0)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/8568c054-77c5-4585-9b84-8363111e16a7)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/9d6b5d37-004b-4cca-8ab0-1e75f9ad031f)
+<img width="586" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/1035d5c7-eb42-43e2-8db0-f4baa4689fc7">
+
+<img width="572" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/701c2e94-99d7-40cd-864c-2f6afd8cb1dd">
+
 
 
 Install Active Directory
-- Login to DC-1 and install Active Directory Domain Services
+- Login to DC-2 and install Active Directory Domain Services
 - Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remember what it is)
-- Restart and then log back into DC-1 as user: mydomain.com\labuser
+- Restart and then log back into DC-2 as user: mydomain.com\labuser
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/893ddf8a-4d15-45b9-bb03-af573ec86810)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/6ba52a91-03ee-429a-9380-08d8804809f3)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/ef5b7e5d-498a-4cb3-a73d-b43fe2928479)
+<img width="821" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/a7fe1542-48c9-4bf4-9374-8ec79641bdc5">
+
+<img width="327" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/5f658d7c-c895-43c6-9570-0a36ee94f84e">
+
+<img width="824" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/58ac6b44-209a-43de-9447-2a9265f7395a">
+
 
 
 Create an Admin and Normal User Account in AD
@@ -79,8 +85,10 @@ Create an Admin and Normal User Account in AD
 - Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\jane_admin”
 - User jane_admin as your admin account from now on
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/b78fec39-7612-43c0-a237-2c0e778f2a4d)
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/e6d6227a-716a-4dcf-9d73-be4b5eb9f18c)
+<img width="560" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/107e9d25-2c2a-4946-bf4f-e4f7c21409de">
+
+<img width="307" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/e034ceac-5f52-4338-9811-0708e0d71c45">
+
 
 
 
@@ -91,7 +99,8 @@ Join Client-1 to your domain (mydomain.com)
 - Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
 - Create a new OU named “_CLIENTS” and drag Client-1 into there (Step is not really necessary, just for organizational purposes.)
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/83463381-d72f-4441-9488-cbd6b2219fb0)
+<img width="604" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/1cb7e27f-7b88-4a83-a54c-705dbd4f01e4">
+
 
 Setup Remote Desktop for non-administrative users on Client-1
 - Log into Client-1 as mydomain.com\jane_admin and open system properties
@@ -100,7 +109,8 @@ Setup Remote Desktop for non-administrative users on Client-1
 - You can now log into Client-1 as a normal, non-administrative user now
 - Normally you’d want to do this with Group Policy that allows you to change MANY systems at once (maybe a future lab)
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/8d51f1d8-a4a8-4d8a-a9dd-6e498e3c9ac9)
+<img width="713" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/23a41a48-7951-40c5-9e1e-acb8b6aba055">
+
 ![image](https://github.com/kphillip1/configure-ad/assets/165929885/171694d8-fa8f-43a5-9d09-5095639ab6d2)
 
 
