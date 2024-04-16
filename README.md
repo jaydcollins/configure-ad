@@ -111,7 +111,8 @@ Setup Remote Desktop for non-administrative users on Client-1
 
 <img width="713" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/23a41a48-7951-40c5-9e1e-acb8b6aba055">
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/171694d8-fa8f-43a5-9d09-5095639ab6d2)
+<img width="701" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/b6260614-f2f7-49ab-8693-80c962e267e5">
+
 
 
 Create a bunch of additional users and attempt to log into client-1 with one of the users
@@ -122,7 +123,8 @@ Create a bunch of additional users and attempt to log into client-1 with one of 
 - When finished, open ADUC and observe the accounts in the appropriate OU
 - attempt to log into Client-1 with one of the accounts (take note of the password in the script -- "Password1")
 
-![image](https://github.com/kphillip1/configure-ad/assets/165929885/2c97e5d8-9fff-44ec-922a-1dfcb010374f)
+<img width="704" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/1864ac65-836e-4b4b-b7b5-44b132dd123a">
+
 
 <h2 align="center"> Nice work! <br>Repeat this lab a couple times to build intuition for deploying Active Directory and creating users with a PowerShell script </h2>
 
