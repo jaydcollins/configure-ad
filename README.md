@@ -43,7 +43,7 @@ Setup Resources in Azure
 - Create the Domain Controller VM (Windows Server 2022) named “DC-2”
 - Take note of the Resource Group and Virtual Network (Vnet) that get created at this time
 - Set Domain Controller’s NIC Private IP address to be static
-- Create the Client VM (Windows 10) named “Client-2”. Use the same Resource Group and Vnet 
+- Create the Client VM (Windows 10) named “Client-1”. Use the same Resource Group and Vnet 
 - Ensure that both VMs are in the same Vnet (you can check the topology with Network Watcher)
 
 <img width="673" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/6122d5d8-b6c6-4c7d-8990-fb622dad9f13">
@@ -54,9 +54,9 @@ Setup Resources in Azure
 
 
 Ensure Connectivity between the client and Domain Controller
-- Login to Client-2 with Remote Desktop and ping DC-2’s private IP address with ping -t <ip address> (perpetual ping)
+- Login to Client-1 with Remote Desktop and ping DC-2’s private IP address with ping -t <ip address> (perpetual ping)
 - Login to the Domain Controller and enable ICMPv4 in on the local windows Firewall
-- Check back at Client-2 to see the ping succeed
+- Check back at Client-1 to see the ping succeed
 
 <img width="586" alt="image" src="https://github.com/jaydcollins/configure-ad/assets/164976272/1035d5c7-eb42-43e2-8db0-f4baa4689fc7">
 
